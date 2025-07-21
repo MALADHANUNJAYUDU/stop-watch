@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import time
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 start_time = 0
 elapsed_time = 0
