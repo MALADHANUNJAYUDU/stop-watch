@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stop Timer App</title>
+</head>
+<body style="text-align:center; font-family:Arial; margin-top:50px;">
+
+    <h1>Stop Timer</h1>
+    <h2 id="timer">0.00 seconds</h2>
+
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <script>
+        let interval;
+
+        function updateTime() {
+            fetch('/time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('timer').innerText = data.time + ' seconds';
+                });
+        }
+
+        function startTimer() {
+            fetch('/start', {method: 'POST'})
+                .then(() => {
+                    interval = setInterval(updateTime, 500);
+                });
+        }
+
+        function stopTimer() {
+            fetch('/stop', {method: 'POST'})
+                .then(() => {
+                    clearInterval(interval);
+                    updateTime();
+                });
+        }
+
+        function resetTimer() {
+            fetch('/reset', {method: 'POST'})
+                .then(() => {
+                    clearInterval(interval);
+                    document.getElementById('timer').innerText = '0.00 seconds';
+                });
+        }
+    </script>
+
+</body>
+</html>
