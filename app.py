@@ -43,5 +43,5 @@ def get_time():
         current_time += time.time() - start_time
     return jsonify({'time': round(current_time, 2)})
 
-if _name_ == '_main_':
+if __name__== '__main__':
     app.run(debug=True)

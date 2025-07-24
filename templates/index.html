@@ -27,7 +27,7 @@
         function startTimer() {
             fetch('/start', {method: 'POST'})
                 .then(() => {
-                    interval = setInterval(updateTime, 500);
+                    interval = setInterval(updateTime,50);
                 });
         }
 
