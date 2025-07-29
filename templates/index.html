@@ -4,19 +4,30 @@
     <meta charset="UTF-8">
     <title>Stop Timer App</title>
     <style>
-        button{
-            color: green;
+        #fist{
+            color:black;
+            background:green
+    
+        }
+        #second{
+            color:aliceblue;
+            background:red
+
+        }
+        #three{
+            color:black;
+            background: yellow 
         }
     </style>
 </head>
-<body style="text-align:center; font-family:Arial; margin-top:50px;">
+<body style="text-salign:center; font-family:Arial; margin-top:50px;">
 
     <h1>Stop Timer</h1>
     <h2 id="timer">0.00 seconds</h2>
 
-    <button onclick="startTimer()">Start</button>
-    <button onclick="stopTimer()">Stop</button>
-    <button onclick="resetTimer()">Reset</button>
+    <button id="fist" onclick="startTimer()">Start</button>
+    <button id="second" onclick="stopTimer()">Stop</button>
+    <button id="three" onclick="resetTimer()">Reset</button>
 
     <script>
         let interval;
